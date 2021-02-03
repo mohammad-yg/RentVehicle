@@ -1,0 +1,38 @@
+﻿@model AddVehicleViewModel
+
+@{
+    ViewBag.Title = "لیست کاربران";
+    IEnumerable<string[]> vehicleTypes = ViewBag.VehcleTypes ?? new List<string[]>();
+}
+
+<div class="container">
+
+    <div class="p-2 m-3">
+        <h3 class="">افزودن وسیله نقلیه</h3>
+    </div>
+    <form class="card card-body" asp-action="Add" method="post">
+        <div class="form-group">
+            <label class="" asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="form-group">
+            <label class="" asp-for="VehicleType"></label>
+            <select class="custom-select" asp-for="VehicleType">
+                @foreach (var item in vehicleTypes)
+                {
+                    <option value="@item[0]">@item[1]</option>
+                }
+            </select>
+            <span class="text-danger" asp-validation-for="VehicleType"></span>
+        </div>
+        <div class="form-group">
+            <label class="" asp-for="Price"></label>
+            <input class="form-control" asp-for="Price" />
+            <span class="text-danger" asp-validation-for="Price"></span>
+        </div>
+        <div class="text-center">
+            <input type="submit" class="btn btn-info pr-4 pl-4 pt-2 pb-2" value="ثبت وسیله نقلیه"/>
+        </div>
+    </form>
+</div>

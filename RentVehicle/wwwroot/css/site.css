@@ -1,0 +1,38 @@
+﻿body {
+    background: #DE6262; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFB88C, #DE6262); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFB88C, #DE6262); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container {
+    background-color: #aaa;
+    text-align: center;
+    margin-top: 8rem;
+    -ms-opacity: 0.9;
+    opacity: 0.95;
+    padding-bottom: 1rem;
+    padding-top: 1.5rem;
+}
+
+.card-body {
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 30px;
+}
+
+.body {
+    padding: 50px;
+}
+
+.mb-10 {
+    margin-bottom: 100px;
+}
+
+.mb-15 {
+    margin-bottom: 150px;
+}
+
+.mb-20 {
+    margin-bottom: 200px;
+}

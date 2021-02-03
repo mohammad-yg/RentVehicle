@@ -1,0 +1,54 @@
+﻿@model IEnumerable<UserDetailViewModel>
+
+@{
+    ViewBag.Title = "لیست کاربران";
+}
+
+
+<div class="container">
+    <div class="pt-5 pr-3">
+        <h3 class="">لیست کاربران</h3>
+        <a class="text-secondary p-2 d-block" asp-area="admin" asp-controller="User" asp-action="Add">افزودن کاربر جدید</a>
+    </div>
+    <table class="table bg-white">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">نام</th>
+                <th scope="col">تاریخ عضویت</th>
+                <th scope="col">وضعیت</th>
+                <th scope="col">تاریخ حذف</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @{
+                int count = 0;
+                foreach (var item in Model)
+                {
+                    <tr>
+                        @{ count += 1;}
+
+                        <th scope="row">@count</th>
+                        <td>@item.Name</td>
+                        <td>@item.RegisterDate</td>
+                        @if (item.IsRemoved)
+                        {
+                            <td>حذف شده</td>
+                        }
+                        else
+                        {
+                            <td>فعال</td>
+                        }
+                        <td>@item.RemoveDate</td>
+                        <td>
+                            @if (!@item.IsRemoved)
+                            {<a asp-controller="User" asp-action="Remove" asp-route-name="@item.Name">حذف</a><span>|</span>}
+                            <a asp-controller="User" asp-action="Detail" asp-route-name="@item.Name">جزئیات</a>
+                        </td>
+                    </tr>
+                }}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<VehicleDetailViewModel>
+
+@{
+    ViewBag.Title = "لیست وسایل نقلیه";
+}
+
+
+<div class="container">
+    <div class="pt-5 pr-3">
+        <h3 class="">لیست وسایل نقلیه</h3>
+        <a class="text-secondary p-2 d-block" asp-action="Add">افزودن وسایل نقلیه جدید</a>
+    </div>
+    <table class="table bg-white">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">نام</th>
+            <th scope="col">نوع وسیله نقلیه</th>
+            <th scope="col">وضعیت</th>
+            <th scope="col">قیمت</th>
+            <th scope="col">وضعیت اجاره</th>
+            <th scope="col">ایجاد کننده</th>
+            <th scope="col">تاریخ ایجاد</th>
+            <th scope="col">تاریخ حذف</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        @{
+            int count = 0;
+            foreach (var item in Model)
+            {
+                count++;
+
+                <tr>
+                    <th scope="row">@count</th>
+                    <td>@item.Name</td>
+                    <td>@item.VehicleType</td>
+                    <td>@(item.IsRemoved ? "حذف شده" : "فعال")</td>
+                    <td>@item.Price</td>
+                    <td>@(item.IsRented ? "اجاره داده شده" : "در پارکینگ")</td>
+                    <td>@item.CreatorName</td>
+                    <td>@item.CreateDate</td>
+                    <td>@item.RemoveDate</td>
+                    <td>
+                        @if (!@item.IsRemoved)
+                        {<a asp-action="Remove" asp-route-name="@item.Name">حذف</a> <span>|</span> }
+                        <a asp-action="Detail" asp-route-name="@item.Name">جزئیات</a>
+                    </td>
+                </tr>
+            }}
+        </tbody>
+    </table>
+</div>

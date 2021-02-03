@@ -1,0 +1,47 @@
+﻿@model VehicleDetailViewModel
+
+@{
+    ViewBag.Title = "لیست کاربران";
+}
+
+<div>
+    <h3 class="">مشخصات کاربر</h3>
+    <a asp-action="Index">بازگشت به لیست</a>
+</div>
+
+<div class="container">
+    <div class="">
+        <div>
+            <label class="custom-control-label" asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" />
+        </div>
+        <div>
+            <label class="custom-control-label" asp-for="VehicleType"></label>
+            <input class="form-control" asp-for="VehicleType" />
+        </div>
+        <div>
+            <label class="custom-control-label" asp-for="Price"></label>
+            <input class="form-control" asp-for="Price" />
+        </div>
+        <div>
+            <label class="custom-control-label" asp-for="CreateDate"></label>
+            <input class="form-control" asp-for="CreateDate" />
+        </div>
+        <div>
+            <label class="custom-control-label" asp-for="CreatorName"></label>
+            <input class="form-control" asp-for="CreatorName" />
+        </div>
+        <div>
+            <label class="custom-control-label" asp-for="IsRented"></label>
+            <input class="form-control" asp-for="IsRented" />
+        </div>
+        <div>
+            <label class="custom-control-label" asp-for="IsRemoved"></label>
+            <input class="form-control" asp-for="IsRemoved" />
+        </div>
+        <div>
+            <label class="custom-control-label" asp-for="RemoveDate"></label>
+            <input class="form-control" asp-for="RemoveDate" />
+        </div>
+    </div>
+</div>

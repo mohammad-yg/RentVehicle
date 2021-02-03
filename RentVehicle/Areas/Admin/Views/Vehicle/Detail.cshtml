@@ -1,0 +1,47 @@
+﻿@model VehicleDetailViewModel
+
+@{
+    ViewBag.Title = "لیست کاربران";
+}
+
+<div class="container">
+
+    <div class="p-2 m-3">
+        <h3 class="text-info">مشخصات کاربر</h3>
+        <a asp-action="Index">بازگشت به لیست</a>
+    </div>
+    <div class="card card-body">
+        <div>
+            <label class="" asp-for="Name"></label>
+            <input readonly="readonly" class="form-control" asp-for="Name" />
+        </div>
+        <div>
+            <label class="" asp-for="VehicleType"></label>
+            <input readonly="readonly" class="form-control" asp-for="VehicleType" />
+        </div>
+        <div>
+            <label class="" asp-for="Price"></label>
+            <input readonly="readonly" class="form-control" asp-for="Price" />
+        </div>
+        <div>
+            <label class="" asp-for="CreateDate"></label>
+            <input readonly="readonly" class="form-control" asp-for="CreateDate" />
+        </div>
+        <div>
+            <label class="" asp-for="CreatorName"></label>
+            <input readonly="readonly" class="form-control" asp-for="CreatorName" />
+        </div>
+        <div>
+            <label class="" asp-for="IsRented"></label>
+            <input readonly="readonly" class="form-control" value="@(Model.IsRemoved ? "حذف شده" : "فعال است")" />
+        </div>
+        <div>
+            <label class="" asp-for="IsRemoved"></label>
+            <input readonly="readonly" class="form-control" value="@(Model.IsRented ? "اجاره داده شده" : "در پارکینگ است")" />
+        </div>
+        <div>
+            <label class="" asp-for="RemoveDate"></label>
+            <input readonly="readonly" class="form-control" asp-for="RemoveDate" />
+        </div>
+    </div>
+</div>

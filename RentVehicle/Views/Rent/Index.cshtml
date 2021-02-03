@@ -1,0 +1,52 @@
+﻿@model AddRentViewModel
+
+@{
+    ViewBag.Title = "اجاره وسیله نقلیه";
+    IEnumerable<VehicleDetailViewModel> vehicles = ViewBag.Vehigles ?? new List<VehicleDetailViewModel>();
+}
+
+<div class="container">
+    <div>
+        <h3 class="">اجازه وسیله نقلیه</h3>
+    </div>
+    <form class="w-50 card card-body pt-5 pb-3" asp-action="Index" method="post">
+        <div class="form-group form-row">
+            <label class="col-5" asp-for="VehicleName"></label>
+            <div class="col-6">
+                <select class="custom-select" asp-for="VehicleName">
+                    @foreach (var item in vehicles)
+                    {
+                        <option price="@item.Price" value="@item.Name">@item.Name  ( @item.Price $ )</option>
+                    }
+                </select>
+            </div>
+            <span class="text-danger" asp-validation-for="VehicleName"></span>
+        </div>
+        <div class="form-group">
+            <label class="" asp-for="Day"></label>
+            <select asp-for="Day">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <span class="text-danger" asp-validation-for="Day"></span>
+        </div>
+        <div class="form-group">
+            <label class="col">مجموع پرداختی :</label>
+            <input readonly="readonly" class="form-control" id="TotalPrice" value=""/>
+        </div>
+        <div class="text-center">
+            <input type="submit" class="btn btn-info pr-4 pl-4 pt-2 pb-2" value="ثبت اجاره تامه" />
+        </div>
+    </form>
+</div>
+@section script{
+    <script type="text/javascript" src="~/js/CalculatePrice.js"></script>
+}

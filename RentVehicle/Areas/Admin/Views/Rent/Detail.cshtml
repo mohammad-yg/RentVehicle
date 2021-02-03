@@ -1,0 +1,46 @@
+﻿@model RentDetailViewModel
+
+@{
+    ViewBag.Title = "لیست کاربران";
+}
+
+<div class="container">
+    <div class="p-2 m-3">
+        <h3 class="">مشخصات کاربر</h3>
+        <a asp-action="Index">بازگشت به لیست</a>
+    </div>
+    <div class="card card-body">
+        <div>
+            <label class="custom-control-label" asp-for="Number"></label>
+            <input readonly="readonly" class="form-control" asp-for="Number" />
+        </div>
+        <div>
+            <label class="custom-control-label" asp-for="VehicleName"></label>
+            <input readonly="readonly" class="form-control" asp-for="VehicleName" />
+        </div>
+        <div>
+            <label class="custom-control-label" asp-for="Price"></label>
+            <input readonly="readonly" class="form-control" asp-for="Price" />
+        </div>
+        <div>
+            <label class="custom-control-label" asp-for="BuyerName"></label>
+            <input readonly="readonly" class="form-control" asp-for="BuyerName" />
+        </div>
+        <div>
+            <label class="custom-control-label" asp-for="Day"></label>
+            <input readonly="readonly" class="form-control" asp-for="Day" />
+        </div>
+        <div>
+            <label class="custom-control-label" asp-for="IsCanceled"></label>
+            <input readonly="readonly" class="form-control" asp-for="IsCanceled" />
+        </div>
+        <div>
+            <label class="custom-control-label" asp-for="RentDate"></label>
+            <input readonly="readonly" class="form-control" asp-for="RentDate" />
+        </div>
+        <div>
+            <label class="custom-control-label" asp-for="CancelDate"></label>
+            <input readonly="readonly" class="form-control" asp-for="CancelDate" />
+        </div>
+    </div>
+</div>

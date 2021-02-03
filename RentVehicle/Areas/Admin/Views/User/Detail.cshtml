@@ -1,0 +1,30 @@
+﻿@model UserDetailViewModel
+
+@{
+    ViewBag.Title = "لیست کاربران";
+}
+
+<div class="container">
+    <div class="p-2 m-3">
+        <h3 class="text-info">مشخصات کاربر</h3>
+        <a asp-action="Index"></a>
+    </div>
+    <div class="card card-body" method="post">
+        <div>
+            <label class="" asp-for="Name"></label>
+            <input readonly="readonly" class="form-control" asp-for="Name" />
+        </div>
+        <div>
+            <label class="" asp-for="RegisterDate"></label>
+            <input readonly="readonly" class="form-control" asp-for="RegisterDate" />
+        </div>
+        <div>
+            <label class="" asp-for="IsRemoved"></label>
+            <input readonly="readonly" class="form-control" value="@(Model.IsRemoved ? "حذف شده" : "فعال")" />
+        </div>
+        <div>
+            <label class="" asp-for="RemoveDate"></label>
+            <input readonly="readonly" class="form-control" asp-for="RemoveDate" />
+        </div>
+    </div>
+</div>

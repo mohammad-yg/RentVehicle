@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "اجاره نامه های من";
+}
+
+
+<div class="container">
+    <div class="pr-3 pb-5">
+        <h3 class="text-info">اجاره نامه های من</h3>
+    </div>
+
+    <form class="w-50 card card-body pt-5 pb-3" asp-action="MyRentals" method="post">
+        <div class="form-group form-row mb-20">
+            <label class="col-4">نام کاربری</label>
+            <input class="form-control col-8" type="text" name="name"/>
+            <span class="text-danger" id="Name"></span>
+        </div>
+        <div class="text-center">
+            <input type="submit" class="btn btn-info pr-4 pl-4 pt-2 pb-2" value="ارسال" />
+        </div>
+    </form>
+</div>

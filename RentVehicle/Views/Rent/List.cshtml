@@ -1,0 +1,51 @@
+﻿@model IEnumerable<RentDetailViewModel>
+
+@{
+    ViewBag.Title = "لیست اجاره ها";
+}
+
+<div class="container pt-5">
+    <div class="pr-3 pb-5">
+        <h3 class="text-info">لیست اجاره ها</h3>
+    </div>
+    <table class="table bg-white">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">کد اجراه نامه</th>
+            <th scope="col">نام وسیله نقلیه</th>
+            <th scope="col">وضعیت</th>
+            <th scope="col">مبلغ پرداخت شده</th>
+            <th scope="col">تعداد روز های اجاره</th>
+            <th scope="col">نام خریدار</th>
+            <th scope="col">تاریخ خرید</th>
+            <th scope="col">تاریخ لغو</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            @{
+                int count = 0;
+                foreach (var item in Model)
+                {
+                    count++;
+
+                    <th scope="row">@count</th>
+                    <td>@item.Number</td>
+                    <td>@item.VehicleName</td>
+                    <td>@{ (item.IsCanceled ? "لغو شده" : "فعال").ToString();}</td>
+                    <td>@item.Price</td>
+                    <td>@item.Day</td>
+                    <td>@item.BuyerName</td>
+                    <td>@item.RentDate</td>
+                    <td>@item.CancelDate</td>
+                    <td>
+                        <a asp-action="Cancel" asp-route-number="@item.Number"></a>
+                        <a asp-action="Detail" asp-route-number="@item.Number"></a>
+                    </td>
+                }}
+        </tr>
+        </tbody>
+    </table>
+</div>
